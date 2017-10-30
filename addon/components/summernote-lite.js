@@ -2,7 +2,7 @@ import { observer } from '@ember/object';
 
 import Component from '@ember/component';
 
-import layout from '../templates/components/summernote-editor';
+import layout from '../templates/components/summernote-lite';
 
 export default Component.extend({
   layout,

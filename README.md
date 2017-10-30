@@ -1,19 +1,21 @@
-# ember-cli-summernote-editor
+# ember-summernote-lite
 
-[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-summernote-editor.svg)](http://emberobserver.com/addons/ember-cli-summernote-editor)
-[![Build Status](https://travis-ci.org/devotox/ember-cli-summernote-editor.svg)](http://travis-ci.org/devotox/ember-cli-summernote-editor)
-[![Coverage Status](https://coveralls.io/repos/github/devotox/ember-cli-summernote-editor/badge.svg)](https://coveralls.io/github/devotox/ember-cli-summernote-editor)
-[![NPM Version](https://badge.fury.io/js/ember-cli-summernote-editor.svg)](http://badge.fury.io/js/ember-cli-summernote-editor)
-[![NPM Downloads](https://img.shields.io/npm/dm/ember-cli-summernote-editor.svg)](https://www.npmjs.org/package/ember-cli-summernote-editor)
-[![Greenkeeper badge](https://badges.greenkeeper.io/devotox/ember-cli-summernote-editor.svg)](https://greenkeeper.io/)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-summernote-lite.svg)](http://emberobserver.com/addons/ember-summernote-lite)
+[![Build Status](https://travis-ci.org/pauln/ember-summernote-lite.svg)](http://travis-ci.org/pauln/ember-summernote-lite)
+[![Coverage Status](https://coveralls.io/repos/github/pauln/ember-summernote-lite/badge.svg)](https://coveralls.io/github/pauln/ember-summernote-lite)
+[![NPM Version](https://badge.fury.io/js/ember-summernote-lite.svg)](http://badge.fury.io/js/ember-summernote-lite)
+[![NPM Downloads](https://img.shields.io/npm/dm/ember-summernote-lite.svg)](https://www.npmjs.org/package/ember-summernote-lite)
+[![Greenkeeper badge](https://badges.greenkeeper.io/pauln/ember-summernote-lite.svg)](https://greenkeeper.io/)
 
 ## Description
-A wrapper around the [summernote](https://github.com/summernote/summernote) library for use in ember-cli projects
+A wrapper around the "lite" version of [summernote](https://github.com/summernote/summernote) for use in ember-cli projects.
 
-[DEMO](http://devotox.github.io/ember-cli-summernote-editor)
+This is a fork of [devotox's ember-cli-summernote-editor](https://github.com/devotox/ember-cli-summernote-editor), which removes the dependency on Bootstrap by using the "lite" version of summernote.
+
+[DEMO](http://pauln.github.io/ember-summernote-lite)
 
 ## Installation
-* `ember install ember-cli-summernote-editor`
+* `ember install ember-summernote-lite`
 
 ## Usage
 
@@ -38,7 +40,7 @@ export default Ember.Controller.extend({
 
 ```handlebars
 
-{{summernote-editor
+{{summernote-lite
   focus=false
   btnSize=bs-sm
   airMode=false
@@ -56,7 +58,7 @@ export default Ember.Controller.extend({
 
 In hbs file
 ```javascript
-    {{summernote-editor content=article buttons=customButtons}}
+    {{summernote-lite content=article buttons=customButtons}}
 ```
 
 In controller file
