@@ -33,7 +33,7 @@
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-node-assets": "^0.2.2",
     "fastboot-transform": "^0.1.2",
-    "summernote": "^0.8.8"
+    "summernote": "^0.8.9"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
