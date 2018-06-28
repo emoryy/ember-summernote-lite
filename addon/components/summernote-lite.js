@@ -1,7 +1,5 @@
 import { observer } from '@ember/object';
-
 import Component from '@ember/component';
-
 import layout from '../templates/components/summernote-lite';
 
 export default Component.extend({
@@ -35,14 +33,14 @@ export default Component.extend({
     ['view', ['undo', 'redo', 'codeview', 'fullscreen']]
   ],
 
-  summernoteOptions() {
-    let buttons = {};
-    let toolbar = this.get('toolbar');
-    let _buttons = this.get('buttons') || [];
-    let callbacks = this.get('callbacks') || {};
+  summernoteOptions: function() {
+    const buttons = {};
+    const toolbar = this.get('toolbar');
+    const _buttons = this.get('buttons') || [];
+    const callbacks = this.get('callbacks') || {};
     callbacks.onChange = this.get('onContentChange') || ((content) => this.set('content', content));
 
-    let properties = this.getProperties([
+    const properties = this.getProperties([
       'height', 'focus', 'lang', 'airMode', 'shortcuts', 'placeholder',
       'dialogsInBody', 'dialogsFade', 'disableDragAndDrop'
     ]);
@@ -55,40 +53,48 @@ export default Component.extend({
     return Object.assign(properties, { callbacks, toolbar, buttons });
   },
 
-  setupSummernote() {
-    let summernote = this.get('summernote');
-    let parent = summernote.parent();
+  setupSummernote: function() {
+    const summernote = this.get('summernote');
+    const parent = summernote.parent();
 
     parent.find('.note-editable').attr('contenteditable', !this.get('disabled'));
     parent.find('.btn').addClass(this.get('btnSize'));
 
-    let content = this.get('content');
+    const content = this.get('content');
     summernote.summernote('code', content);
 
   },
 
-  willDestroyElement() {
-    let summernote = this.get('summernote');
+  willDestroyElement: function() {
+    const summernote = this.get('summernote');
     summernote.summernote('destroy');
   },
 
-  didInsertElement() {
-    let summernoteOptions = this.summernoteOptions();
-
-    let summernote = this.$('.summernote').summernote(summernoteOptions);
-
+  didInsertElement: function() {
+    const summernoteOptions = this.summernoteOptions();
+    const summernote = this.$('.summernote').summernote(summernoteOptions);
     this.set('summernote', summernote);
-
     this.setupSummernote();
   },
 
+  didReceiveAttrs: function() {
+    const summernote = this.get('summernote');
+    if (summernote) {
+      const summerNoteContent = summernote.summernote('code');
+      const content = this.get('content');
+      if (summerNoteContent !== content) {
+        summernote.summernote('code', content);
+      }
+    }
+  },
+
   setHeight: observer('height', function() {
-    let parent = this.get('summernote').parent();
+    const parent = this.get('summernote').parent();
     parent.find('.note-editable').css('height', this.get('height'));
   }),
 
   setDisabled: observer('disabled', function() {
-    let parent = this.get('summernote').parent();
+    const parent = this.get('summernote').parent();
     parent.find('.note-editable').attr('contenteditable', !this.get('disabled'));
   })
 });
