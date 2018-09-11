@@ -17,6 +17,7 @@ module.exports = {
             'font/summernote.ttf',
             'font/summernote.woff'
           ],
+          vendor: ['summernote-lite.js.map'],
           processTree(input) {
            return fastbootTransform(input);
           }
